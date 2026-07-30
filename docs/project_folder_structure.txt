@@ -1,0 +1,78 @@
+carina/
+├── api
+│   └── openapi.yaml
+├── cmd
+│   └── api
+│       └── main.go
+├── deployments
+│   ├── docker-compose.yml
+│   └── Dockerfile
+├── docs
+│   ├── api-guide.md
+│   ├── architecture.md
+│   ├── decisions
+│   │   └── 0001-feature-based-structure.md
+│   ├── deployment.md
+│   └── setup.md
+├── go.mod
+├── go.sum
+├── internal
+│   ├── auth
+│   │   ├── auth_test.go
+│   │   ├── handler.go
+│   │   ├── jwt.go
+│   │   ├── model.go
+│   │   ├── repository.go
+│   │   └── service.go
+│   ├── config
+│   │   └── config.go
+│   ├── file
+│   │   ├── file_test.go
+│   │   ├── handler.go
+│   │   ├── model.go
+│   │   ├── repository.go
+│   │   ├── service.go
+│   │   └── storage.go
+│   ├── middleware
+│   │   ├── auth.go
+│   │   ├── logging.go
+│   │   └── recover.go
+│   ├── platform
+│   │   ├── postgres
+│   │   │   ├── migrations
+│   │   │   │   └── 0001_init.sql
+│   │   │   └── postgres.go
+│   │   └── redis
+│   │       └── redis.go
+│   ├── ratelimit
+│   │   └── ratelimit.go
+│   ├── server
+│   │   ├── router.go
+│   │   └── server.go
+│   ├── sharing
+│   │   ├── handler.go
+│   │   ├── model.go
+│   │   ├── repository.go
+│   │   ├── service.go
+│   │   └── sharing_test.go
+│   ├── upload
+│   │   ├── handler.go
+│   │   ├── model.go
+│   │   ├── redis_repository.go
+│   │   ├── service.go
+│   │   └── upload_test.go
+│   └── worker
+│       ├── scan.go
+│       ├── thumbnail.go
+│       └── worker.go
+├── LICENSE
+├── Makefile
+├── pkg
+│   └── validator
+│       └── validator.go
+├── README.md
+├── scripts
+│   ├── migrate.sh
+│   └── seed.sh
+└── test
+    └── integration
