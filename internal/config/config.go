@@ -5,6 +5,8 @@ import (
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 // configurations for hte server
@@ -67,6 +69,9 @@ type Config struct {
 
 // and a whole sum function to load all the config and return a whole sum Config
 func Load() Config {
+	// before we fuck, lets load some env variables into the system 
+	godotenv.Load()
+	
 	// first we fuck the server configurations
 	var server ServerConfig
 	server.Host = os.Getenv("DATABASE_URL")

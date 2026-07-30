@@ -1,8 +1,11 @@
 package main
 
 import (
-	"github.com/sospeter-57/carina/internal/config"
+	"fmt"
+	
+	"carina/internal/config"
 )
 func main() {
 	var _ = config.Load()
+	fmt.Println("everything went well")
 }

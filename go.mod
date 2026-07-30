@@ -1,3 +1,5 @@
-module github.com/yourorg/carina
+module carina
 
-go 1.22
+go 1.26
+
+require github.com/joho/godotenv v1.5.1 // indirect
