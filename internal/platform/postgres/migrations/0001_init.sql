@@ -11,9 +11,7 @@
 --   - Foreign keys are CASCADE where appropriate
 --   - Timestamps are UTC with timezone
 
--- ===================================================================
 -- Users
--- ===================================================================
 
 CREATE TABLE IF NOT EXISTS users (
     id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -27,9 +25,7 @@ CREATE TABLE IF NOT EXISTS users (
 -- Lookup by email is the most common auth query
 CREATE INDEX IF NOT EXISTS idx_users_email ON users (email);
 
--- ===================================================================
 -- Refresh Tokens
--- ===================================================================
 
 CREATE TABLE IF NOT EXISTS refresh_tokens (
     id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -46,9 +42,7 @@ CREATE TABLE IF NOT EXISTS refresh_tokens (
 CREATE INDEX IF NOT EXISTS idx_refresh_tokens_token_hash ON refresh_tokens (token_hash);
 CREATE INDEX IF NOT EXISTS idx_refresh_tokens_user_id ON refresh_tokens (user_id);
 
--- ===================================================================
 -- Files
--- ===================================================================
 
 CREATE TABLE IF NOT EXISTS files (
     id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -66,9 +60,7 @@ CREATE TABLE IF NOT EXISTS files (
 CREATE INDEX IF NOT EXISTS idx_files_owner_id ON files (owner_id);
 CREATE INDEX IF NOT EXISTS idx_files_status ON files (status);
 
--- ===================================================================
 -- Shares
--- ===================================================================
 
 CREATE TABLE IF NOT EXISTS shares (
     id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -85,9 +77,7 @@ CREATE TABLE IF NOT EXISTS shares (
 CREATE INDEX IF NOT EXISTS idx_shares_token ON shares (token);
 CREATE INDEX IF NOT EXISTS idx_shares_file_id ON shares (file_id);
 
--- ===================================================================
 -- Update timestamp triggers
--- ===================================================================
 
 -- Function to automatically update updated_at
 CREATE OR REPLACE FUNCTION update_updated_at_column()
