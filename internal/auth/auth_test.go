@@ -29,11 +29,19 @@ func TestHashPassword(t *testing.T) {
 // next we test our comparison function
 func TestVerifyPassword(t *testing.T) {
 	var hash = "$2a$10$nMTQF6vOQlpNXfHHhP1S6eN3FagjuGP7A1H5MI0R6sipLC3SiNZ/O"
-	var plain = "Password123"
 
+	// a matching password should be okay
+	var plain = "Password123"
 	err := VerifyPassword([]byte(hash), []byte(plain))
 	if err != nil {
 		t.Errorf("Error: %s", err)
+	}
+
+	// let's try a mistach password
+	plain = "password"
+	err = VerifyPassword([]byte(hash), []byte(plain))
+	if err == nil {
+		t.Errorf("Passwords: Password123 and password shouldn't match. what's the point!")
 	}
 }
 
